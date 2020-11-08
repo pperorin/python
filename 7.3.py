@@ -43,17 +43,26 @@ def printTree90(node, level = 0):
 def father(r,data):
     curr=r
     while curr.left != None or curr.right != None:
-        cl=curr.left
-        cr=curr.right
         if data == r.data:
             return 'None Because'+' '+ data +' '+'is Root'
-        elif cl.data == data or cr.data == data:
+        elif curr.left==None and curr.right==None:
+            return '1Not Found Data'
+        elif curr.left == data or curr.right == data:
             return curr.data
         elif data >= curr.data:
-            curr=curr.right
+            if curr.right != None:
+                curr=curr.right
+            else:
+                if curr.left == None:
+                    return '2Not Found Data'        
         elif data < curr.data:
-            curr=curr.left
-    return 'Not Found Data'
+            if curr.left != None:
+                curr=curr.left
+            else:
+                if curr.right == None:
+                    return '3Not Found Data'
+            
+        print(curr,'and',curr.left,'and',curr.right)
 
 
 
