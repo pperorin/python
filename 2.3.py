@@ -1,18 +1,34 @@
-def gcd(x , y):
-    if y == 0:
-        return x
+class TorKham:
+	def __init__(self):
+		self.words = []
+
+	def restart(self):
+		self.words=[]
+		return "game restarted"
+
+	def play(self, word):
+        if self.words == []:
+		    self.words.append(word)
+        else:
+            x=self.words[-1]
+            y=self.words[-2]
+            if x[2:4] == y[-2:]
+		return "game over"
+
+torkham = TorKham()
+print("*** TorKham HanSaa ***")
+S = input("Enter Input : ").split(',')
+for i in S:
+    if i[0]=="P":
+        torkham.play(i[2:])
+        print('\'',i[2:],'\'',' -> ',torkham.words,sep='')
+    elif i[0]=="R":
+        print(torkham.restart())
+    elif i[0]=="X":
+        break
     else:
-        return gcd(y, x % y)
-x,y=map(int,input('Enter Input : ').split())
-if(x==0 and y==0):
-    print('Error! must be not all zero.')
-elif x<0 and y<0:
-    if abs(x)>=abs(y):
-        print('The gcd of' , x , 'and' , y ,'is :',gcd(abs(x),abs(y)),end='')
-    else:
-        print('The gcd of' , y , 'and' , x ,'is :',gcd(abs(y),abs(x)),end='')
-elif(x>=y):
-    print('The gcd of' , x , 'and' , y ,'is :',gcd(abs(x),abs(y)),end='')
-elif(y>x):
-    print('The gcd of' , y , 'and' , x ,'is :',gcd(abs(y),abs(x)),end='')
+        print('\'',i,'\''," is Invalid Input !!!",sep='')
+        break
+
+
 
